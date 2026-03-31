@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domain Generator</title>
+    <meta name="description" content="Free AI-powered domain name generator. Find brandable startup domain names for your business across 100+ niches including AI, fitness, tech, crypto, and more.">
+    <meta name="keywords" content="domain name generator, domain names, startup names, business domain names, brandable domains, free domain generator">
+    <title>Free Domain Name Generator | Find Brandable Domains Instantly</title>
     <style>
         * {
             margin: 0;
@@ -16,36 +18,85 @@
             background: #f6f8fc;
             min-height: 100vh;
             color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 12px 16px;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: #0f172a;
+        }
+
+        .navbar-brand a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .navbar-nav {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .navbar-nav a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .navbar-nav a:hover,
+        .navbar-nav a.active {
+            color: #3b82f6;
         }
 
         .main-area {
-            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px 16px;
+            padding: 40px 16px;
+            min-height: auto;
         }
 
         .container {
-            width: min(760px, 100%);
+            width: min(900px, 100%);
         }
 
         .hero {
             text-align: center;
-            margin-bottom: 14px;
+            margin-bottom: 32px;
         }
 
         .hero h1 {
-            font-size: clamp(2rem, 4.2vw, 3.1rem);
+            font-size: clamp(2rem, 5vw, 3.2rem);
             line-height: 1.08;
             letter-spacing: -0.02em;
-            margin-bottom: 6px;
-            font-weight: 800;
+            margin-bottom: 12px;
+            font-weight: 900;
             color: #0f172a;
         }
 
         .hero p {
-            font-size: 0.98rem;
+            font-size: 1rem;
             color: #64748b;
             margin-bottom: 6px;
         }
@@ -76,7 +127,6 @@
             font-weight: 700;
             padding: 8px 12px;
             border-radius: 8px;
-            min-height: auto;
             cursor: default;
         }
 
@@ -153,16 +203,82 @@
             color: #64748b;
         }
 
-        .micro-copy + .micro-copy {
-            margin-top: 4px;
-        }
-
         .error {
             min-height: 20px;
             margin-top: 8px;
             text-align: center;
             font-size: 0.9rem;
             color: #dc2626;
+        }
+
+        .content-section {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 6px 16px rgba(15, 23, 42, 0.05);
+            animation: fadeInUp 0.4s ease both;
+        }
+
+        .content-section h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .content-section h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 16px;
+        }
+
+        .section-intro {
+            font-size: 0.98rem;
+            line-height: 1.8;
+            color: #475569;
+            margin-bottom: 16px;
+        }
+
+        .niche-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .niche-link {
+            display: block;
+            padding: 14px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #3b82f6;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #334155;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .niche-link:hover {
+            background: #eff6ff;
+            border-left-color: #2563eb;
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+        }
+
+        .niche-link strong {
+            color: #1e40af;
+            display: block;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .niche-link span {
+            font-size: 0.85rem;
+            color: #64748b;
         }
 
         .results-header {
@@ -219,23 +335,6 @@
             font-size: 0.96rem;
             font-weight: 800;
             color: #0f172a;
-        }
-
-        .badge {
-            padding: 3px 8px;
-            border-radius: 999px;
-            font-size: 0.72rem;
-            font-weight: 700;
-        }
-
-        .badge.recommended {
-            background: #dbeafe;
-            color: #1e40af;
-        }
-
-        .badge.cheapest {
-            background: #dcfce7;
-            color: #166534;
         }
 
         .rows {
@@ -310,6 +409,7 @@
             padding: 0 12px;
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
         }
 
         .buy-btn:hover {
@@ -330,6 +430,15 @@
             display: none;
         }
 
+        #resultsSection {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 6px 16px rgba(15, 23, 42, 0.05);
+            margin-bottom: 16px;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -341,131 +450,15 @@
             }
         }
 
-        .content-section {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 16px;
-            box-shadow: 0 6px 16px rgba(15, 23, 42, 0.05);
-            animation: fadeInUp 0.4s ease both;
-        }
+        @media (max-width: 768px) {
+            .navbar-nav {
+                gap: 12px;
+                font-size: 0.8rem;
+            }
 
-        .content-section h2 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #0f172a;
-            margin-bottom: 12px;
-            line-height: 1.2;
-        }
-
-        .content-section h3 {
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: #0f172a;
-            margin-bottom: 16px;
-        }
-
-        .content-section h4 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 8px;
-        }
-
-        .section-intro {
-            font-size: 0.98rem;
-            line-height: 1.6;
-            color: #475569;
-            margin-bottom: 16px;
-        }
-
-        .niche-list {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            gap: 10px;
-        }
-
-        .niche-list li {
-            padding: 12px;
-            background: #f8fafc;
-            border-left: 3px solid #3b82f6;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            color: #334155;
-        }
-
-        .niche-list strong {
-            color: #0f172a;
-            font-weight: 700;
-        }
-
-        .examples-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 16px;
-            margin-top: 16px;
-        }
-
-        .example-group {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 14px;
-        }
-
-        .example-group h4 {
-            margin-bottom: 10px;
-            color: #1e40af;
-        }
-
-        .domain-examples {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .domain-examples li {
-            font-size: 0.88rem;
-            color: #475569;
-            padding: 6px 0;
-            border-bottom: 1px solid #e2e8f0;
-            word-break: break-word;
-        }
-
-        .domain-examples li:last-child {
-            border-bottom: none;
-        }
-
-        .feature-list {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .feature-list li {
-            padding: 12px;
-            background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
-            border-left: 3px solid #2563eb;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            color: #334155;
-        }
-
-        .feature-list strong {
-            color: #0f172a;
-            font-weight: 700;
-        }
-
-        .faq-section {
-            background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+            .niche-links {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 860px) {
@@ -496,32 +489,29 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-
-            .content-section {
-                padding: 16px;
-                margin-bottom: 12px;
-            }
-
-            .content-section h2 {
-                font-size: 1.4rem;
-            }
-
-            .content-section h3 {
-                font-size: 1.1rem;
-            }
-
-            .examples-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-brand">
+                <a href="index.html">🚀 DomainGen</a>
+            </div>
+            <ul class="navbar-nav">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="ai-domains.html">AI Domains</a></li>
+                <li><a href="fitness-domains.html">Fitness</a></li>
+                <li><a href="#resultsSection">Generator</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <main class="main-area">
         <div class="container">
             <section class="hero">
-                <h1>Generate Domain Names Instantly</h1>
-                <p>Find brandable domains in seconds</p>
+                <h1>Free Domain Name Generator</h1>
+                <p>Find brandable startup domains in seconds</p>
             </section>
 
             <section class="toolbox">
@@ -553,70 +543,53 @@
                 <div id="sectionsContainer" class="sections"></div>
             </section>
 
-            <!-- SEO Content Sections -->
+            <!-- Content Section -->
             <section class="content-section">
-                <h2>Best Domain Name Ideas for Your Business</h2>
-                <p class="section-intro">Our AI-powered domain generator helps entrepreneurs, startups, and businesses find the perfect brandable domain names instantly. Whether you're launching a tech startup, fitness brand, or e-commerce store, we generate creative, memorable domain names across multiple extensions including .com, .in, .xyz, .ai, and .site domains.</p>
+                <h2>Find Perfect Domain Names for Any Industry</h2>
+                <p class="section-intro">Our AI-powered <strong>domain name generator</strong> helps entrepreneurs, startups, and businesses find the perfect <strong>brandable domain names</strong> instantly. Whether you're launching in tech, fitness, finance, e-commerce, or any other industry, our free tool generates hundreds of creative domain name suggestions across multiple extensions including .com, .in, .xyz, .ai, and .site. Getting a great domain name is essential for your brand identity, search engine rankings, and online success.</p>
             </section>
 
+            <!-- Niche Links Section -->
             <section class="content-section">
-                <h3>Popular Niches for Domain Generation</h3>
-                <ul class="niche-list">
-                    <li><strong>AI & Machine Learning:</strong> Generate domains for AI tools, ChatGPT alternatives, and ML platforms</li>
-                    <li><strong>Fitness & Wellness:</strong> Find perfect domains for gyms, yoga studios, fitness apps, and wellness brands</li>
-                    <li><strong>Technology & SaaS:</strong> Create tech-focused domains for software, apps, and digital products</li>
-                    <li><strong>Crypto & Blockchain:</strong> Discover crypto exchange, wallet, and DeFi platform domain names</li>
-                    <li><strong>E-Commerce & Retail:</strong> Generate memorable names for online stores and marketplace platforms</li>
-                    <li><strong>Finance & Fintech:</strong> Create professional domains for banking, investment, and financial services</li>
-                    <li><strong>Marketing & Design:</strong> Find creative names for agencies, studios, and creative services</li>
-                    <li><strong>Social Media & Content:</strong> Generate domains for blogs, podcasts, and content creator platforms</li>
-                </ul>
-            </section>
-
-            <section class="content-section">
-                <h3>Example Domain Combinations</h3>
-                <p class="section-intro">Explore sample domain names generated across different niches:</p>
-                <div class="examples-grid">
-                    <div class="example-group">
-                        <h4>AI Niche Examples</h4>
-                        <ul class="domain-examples">
-                            <li>smartailab.com, smartailab.ai, smartailab.xyz</li>
-                            <li>prohub.com, prohub.ai, prohub.site</li>
-                            <li>aitools.com, aitools.ai, aitools.zone</li>
-                        </ul>
-                    </div>
-                    <div class="example-group">
-                        <h4>Fitness Niche Examples</h4>
-                        <ul class="domain-examples">
-                            <li>fitnesshub.com, fitnesshub.in, fitnesshub.site</li>
-                            <li>fitify.com, fitify.ai, fitify.app</li>
-                            <li>fitlabs.com, fitlabs.pro, fitlabs.xyz</li>
-                        </ul>
-                    </div>
-                    <div class="example-group">
-                        <h4>Tech Startup Examples</h4>
-                        <ul class="domain-examples">
-                            <li>techlab.com, techlab.ai, techlab.site</li>
-                            <li>smartpro.com, smartpro.tech, smartpro.io</li>
-                            <li>devhub.com, devhub.tools, devhub.dev</li>
-                        </ul>
-                    </div>
+                <h3>Domain Name Ideas for Your Industry</h3>
+                <p class="section-intro">Get domain name suggestions tailored to your specific niche. Click on any industry to see examples and tips.</p>
+                <div class="niche-links">
+                    <a href="ai-domains.html" class="niche-link">
+                        <strong>🤖 AI & Machine Learning</strong>
+                        <span>AI tools, chatbots, ML platforms</span>
+                    </a>
+                    <a href="fitness-domains.html" class="niche-link">
+                        <strong>💪 Fitness & Wellness</strong>
+                        <span>Gyms, yoga, fitness apps , wellness</span>
+                    </a>
+                    <a href="tech-domains.html" class="niche-link">
+                        <strong>💻 Technology & SaaS</strong>
+                        <span>Software, apps, tech products</span>
+                    </a>
+                    <a href="crypto-domains.html" class="niche-link">
+                        <strong>🔗 Crypto & Blockchain</strong>
+                        <span>Exchanges, wallets, DeFi platforms</span>
+                    </a>
+                    <a href="ecommerce-domains.html" class="niche-link">
+                        <strong>🛍️ E-Commerce & Retail</strong>
+                        <span>Online stores, marketplaces</span>
+                    </a>
+                    <a href="finance-domains.html" class="niche-link">
+                        <strong>💰 Finance & Fintech</strong>
+                        <span>Banking, investments, payments</span>
+                    </a>
+                    <a href="marketing-domains.html" class="niche-link">
+                        <strong>🎨 Marketing & Design</strong>
+                        <span>Agencies, studios, services</span>
+                    </a>
+                    <a href="content-domains.html" class="niche-link">
+                        <strong>📱 Content & Creators</strong>
+                        <span>Blogs, podcasts, social media</span>
+                    </a>
                 </div>
             </section>
 
-            <section class="content-section faq-section">
-                <h3>Why Choose Our Domain Generator?</h3>
-                <ul class="feature-list">
-                    <li>⚡ <strong>Instant Results:</strong> Generate hundreds of brandable domain names in seconds</li>
-                    <li>💰 <strong>Affordable Pricing:</strong> Register domains starting from just ₹99/year</li>
-                    <li>🎯 <strong>SEO-Friendly:</strong> AI-generated names optimized for search engines and branding</li>
-                    <li>🌐 <strong>Multiple Extensions:</strong> Choose from .com, .in, .xyz, .ai, .site and more</li>
-                    <li>✅ <strong>Availability Checking:</strong> Instant availability status for each domain</li>
-                    <li>🔄 <strong>Easy Registration:</strong> One-click registration through our partner Namecheap</li>
-                </ul>
-            </section>
-
-            <footer class="footer">© 2026 DomainGen AI • All rights reserved</footer>
+            <footer class="footer">© 2026 DomainGen • All rights reserved</footer>
         </div>
     </main>
 
@@ -751,7 +724,6 @@
                 resultCount.textContent = `${total} domains`;
                 loadingState.classList.add('hidden');
                 
-                // Smooth scroll to results
                 resultsSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }, 550);
         }
